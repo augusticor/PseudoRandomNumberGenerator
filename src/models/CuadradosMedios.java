@@ -14,7 +14,8 @@ public class CuadradosMedios extends PseudoRandom {
 		int seedSize = Integer.toString(Xi).length();
 		double divisionNumber = Math.pow(10, seedSize);
 		double Ri = 0;
-
+		super.clearDatForTables();
+		
 		for (int i = 0; i < n; i++) {
 			algorithm();
 			Ri = (double) seedAux / divisionNumber;

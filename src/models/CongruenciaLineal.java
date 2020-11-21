@@ -19,7 +19,7 @@ public class CongruenciaLineal extends PseudoRandom {
 	 * 
 	 * @param k pendiente de la recta
 	 * @param c interseccion de la recta
-	 * @param g periodo de generación (se convertira en m)
+	 * @param g periodo de generaciï¿½n (se convertira en m)
 	 */
 	public void updateCongruencia(int k, int c, int g) {
 		Xi = super.seed;
@@ -29,12 +29,12 @@ public class CongruenciaLineal extends PseudoRandom {
 		m = (int) Math.pow(2, g);
 	}
 
-	public void algorithm() {
+	public void algorithm(boolean isClosedSet) {
 		super.clearDatForTables();
 
 		for (int i = 0; i < super.numbersToGenerate; i++) {
 			Xi = ((a * Xi) + c) % m;
-			double Ri = generateRi(Xi, true);
+			double Ri = generateRi(Xi, isClosedSet);
 
 			super.addDataForTable(i + 1, Xi, Ri, super.calculateNI(Ri));
 		}
@@ -63,8 +63,8 @@ public class CongruenciaLineal extends PseudoRandom {
 		congruenciaLineal.updateValues(8, 10, 1, 10);
 		congruenciaLineal.updateCongruencia(4, 3, 7);
 
-		congruenciaLineal.algorithm();
-
+		congruenciaLineal.algorithm(true);
+		
 		for (int i = 0; i < congruenciaLineal.dataForTables.size(); i++) {
 			System.out.println(congruenciaLineal.dataForTables.get(i));
 		}
