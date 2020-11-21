@@ -31,13 +31,12 @@ public class CongruenciaLineal extends PseudoRandom {
 
 	public void algorithm() {
 		super.clearDatForTables();
-		
+
 		for (int i = 0; i < super.numbersToGenerate; i++) {
 			Xi = ((a * Xi) + c) % m;
 			double Ri = generateRi(Xi, true);
 
-			//System.out.println("Xi : " + Xi + "-- Ri : " + Ri);
-			super.addDataForTable(i, Xi, Ri, super.calculateNI(Ri));
+			super.addDataForTable(i + 1, Xi, Ri, super.calculateNI(Ri));
 		}
 	}
 
@@ -65,7 +64,7 @@ public class CongruenciaLineal extends PseudoRandom {
 		congruenciaLineal.updateCongruencia(4, 3, 7);
 
 		congruenciaLineal.algorithm();
-		
+
 		for (int i = 0; i < congruenciaLineal.dataForTables.size(); i++) {
 			System.out.println(congruenciaLineal.dataForTables.get(i));
 		}
