@@ -3,6 +3,10 @@ package constants;
 public class MyConstants {
 
 	public static final String APP_TITLE = "Generador de números pseudoaleatorios";
+	public static final String MAIN_ICON = "/img/icon.png";
+
+	// Column identifiers
+	public static final String COLI_BASIC[] = { "i", "Xi", "Ri", "Ni" };
 
 	// Labels
 	public static final String LBL_TITLE = "<html>Generador de números<br>pseudoaleatorios</html>";
@@ -17,6 +21,7 @@ public class MyConstants {
 
 	// Fonts
 	public static final String FONT_ROBOTO = "Roboto";
+	public static final String FONT_ARIAL = "Arial";
 
 	// Hexadecimal
 	public static final String CLR_BLUE_BTNS = "#07689F";
