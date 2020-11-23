@@ -77,6 +77,19 @@ public class PseudoRandomMainWindow extends JFrame {
 	private ImageIcon createImageIcon(String path) {
 		return new ImageIcon(getClass().getResource(path));
 	}
+	
+	public void showDialogCuadradosMedios() {
+		new JDCuadradosMedios(this);
+		System.out.println("paso 2");
+	}
+	
+	public void showDialogCongruenciaLineal() {
+		new JDCongruenciaLineal(this);
+	}
+	
+	public void showDialogCongruenciaMiltiplicativa() {
+		new JDCongruenciaMultiplicativa(this);
+	}
 
 	private static final long serialVersionUID = 1L;
 }
