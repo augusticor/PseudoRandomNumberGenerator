@@ -50,8 +50,8 @@ public class PseudoRandomMainWindow extends JFrame {
 		ownJTable = new OwnJTable();
 		add(new JScrollPane(ownJTable), c);
 
-		jdCuadradosMedios = new JDCuadradosMedios(this);
-		jdCongruenciaLineal = new JDCongruenciaLineal(this);
+		jdCuadradosMedios = new JDCuadradosMedios(this,actionListener);
+		jdCongruenciaLineal = new JDCongruenciaLineal(this,actionListener);
 		jdCongruenciaMultiplicativa = new JDCongruenciaMultiplicativa(this, actionListener);
 
 		setVisible(true);
@@ -101,6 +101,14 @@ public class PseudoRandomMainWindow extends JFrame {
 
 	public Object[] getDataCongruenciaMultiplicativa() {
 		return jdCongruenciaMultiplicativa.congruenciaMultiplicativaInfo();
+	}
+	
+	public Object[] getDataCongruenciaLineal() {
+		return jdCongruenciaLineal.congruenciaLinealInfo();
+	}
+	
+	public Object[] getDataCuadradosMedios() {
+		return jdCuadradosMedios.cuadradosMediosInfo();
 	}
 
 	private ImageIcon createImageIcon(String path) {

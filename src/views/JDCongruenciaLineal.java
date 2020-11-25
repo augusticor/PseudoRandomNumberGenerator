@@ -2,7 +2,7 @@ package views;
 
 import java.awt.Color;
 import java.awt.Component;
-import java.awt.Font;
+import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
@@ -10,7 +10,8 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JSpinner;
 
-import constants.MyConstants;
+import controller.ActionsE;
+import views.components.OwnJButton;
 import views.components.OwnJComboBox;
 
 public class JDCongruenciaLineal extends JDialog{
@@ -21,13 +22,13 @@ public class JDCongruenciaLineal extends JDialog{
 	private JSpinner spMin;
 	private JSpinner spMax;
 	private JSpinner spNumToGenerate;
+	private JSpinner spk;
 	private JSpinner spC;
-	private JSpinner spA;
 	private JSpinner spG;
 	private OwnJComboBox coboxIsClosed;
 	private JButton button;
 	
-	public JDCongruenciaLineal(PseudoRandomMainWindow pseudoRandomMainWindow) {
+	public JDCongruenciaLineal(PseudoRandomMainWindow pseudoRandomMainWindow, ActionListener listener) {
 		
 		setModal(true);
 		setSize(300, 450);
@@ -52,13 +53,13 @@ public class JDCongruenciaLineal extends JDialog{
 		spNumToGenerate.setBorder(BorderFactory.createTitledBorder("Ingrese el numero de numeros a generar"));
 		add(spNumToGenerate );
 		
+		spk = new JSpinner();
+		spk.setBorder(BorderFactory.createTitledBorder("Ingrese el valor de K"));
+		add(spk );
+		
 		spC = new JSpinner();
 		spC.setBorder(BorderFactory.createTitledBorder("Ingrese el valor de C"));
 		add(spC );
-		
-		spA = new JSpinner();
-		spA.setBorder(BorderFactory.createTitledBorder("Ingrese el valor de A"));
-		add(spA );
 		
 		spG = new JSpinner();
 		spG.setBorder(BorderFactory.createTitledBorder("Ingrese el valor de G"));
@@ -67,13 +68,23 @@ public class JDCongruenciaLineal extends JDialog{
 		coboxIsClosed = new OwnJComboBox();
 		add(coboxIsClosed);
 		
-		button = new JButton("Calcular");
+		button = new OwnJButton(" Generar ",ActionsE.CALCULATE_CONGRUENCIA_LINEAL,listener);
 		button.setAlignmentX(Component.CENTER_ALIGNMENT);
-		button.setForeground(Color.decode(MyConstants.CLR_WHITE));
-		button.setBackground(Color.decode(MyConstants.CLR_BLUE_BTNS));
-		button.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2, true));
-		button.setFont(new Font(MyConstants.FONT_ROBOTO, 1, 15));
 		add(button);
 		
+	
+	}
+	
+	public Object[] congruenciaLinealInfo() {
+		return new Object[] {
+				(Integer) spSeed.getValue(),
+				(Integer) spMin.getValue(),
+				(Integer) spMax.getValue(),
+				(Integer) spNumToGenerate.getValue(),
+				(Integer) spk.getValue(),
+				(Integer) spC.getValue(),
+				(Integer) spG.getValue(),
+				coboxIsClosed.getSelectedIndex() == 0 ? true : false
+		};
 	}
 }

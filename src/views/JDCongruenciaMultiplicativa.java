@@ -53,7 +53,7 @@ public class JDCongruenciaMultiplicativa extends JDialog {
 		coboxIsClosed = new OwnJComboBox();
 		add(coboxIsClosed);
 
-		btnCongruenciaM = new OwnJButton("  Calcular  ", ActionsE.CALCULATE_CONGRUENCIA_MULTIPLICATIVA, actionListener);
+		btnCongruenciaM = new OwnJButton("  Generar  ", ActionsE.CALCULATE_CONGRUENCIA_MULTIPLICATIVA, actionListener);
 		btnCongruenciaM.setAlignmentX(Component.CENTER_ALIGNMENT);
 		add(btnCongruenciaM);
 	}

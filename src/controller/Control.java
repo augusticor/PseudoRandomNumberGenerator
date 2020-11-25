@@ -10,11 +10,15 @@ import views.PseudoRandomMainWindow;
 public class Control implements ActionListener {
 
 	private CongruenciaMultiplicativa congruenciaMultiplicativa;
+	private CongruenciaLineal congruenciaLineal;
+	private CuadradosMedios cuadradosMedios;
 
 	private PseudoRandomMainWindow mainW;
 
 	public Control() {
 		congruenciaMultiplicativa = new CongruenciaMultiplicativa();
+		congruenciaLineal = new CongruenciaLineal();
+		cuadradosMedios = new CuadradosMedios();
 
 		mainW = new PseudoRandomMainWindow(this);
 	}
@@ -40,13 +44,33 @@ public class Control implements ActionListener {
 		case CALCULATE_CONGRUENCIA_MULTIPLICATIVA:
 			calculateCongruenciaMultiplicativa();
 			break;
+		case CALCULATE_CONGRUENCIA_LINEAL:
+			calculateCongruenciaLineal();
+			break;
+		case CALCULATE_CUADRADOS_MEDIOS:
+			calculateCuadradosMedios();
 		}
 	}
 
 	public void calculateCuadradosMedios() {
+		Object[] data = mainW.getDataCuadradosMedios();
+		cuadradosMedios.updateValues((int) data[1], (int) data[2], (int) data[0], (int) data[3]);
+		cuadradosMedios.updateCuadrados();
+		cuadradosMedios.generateNumbers();
+		
+		mainW.manageTableData(MyConstants.COLI_BASIC, cuadradosMedios.getDataForTables());
+		mainW.showDialogCuadradosMedios(false);
 	}
 
 	public void calculateCongruenciaLineal() {
+		Object[] data = mainW.getDataCongruenciaLineal();
+		congruenciaLineal.updateValues((int) data[1], (int) data[2], (int) data[0], (int) data[3]);
+		congruenciaLineal.updateCongruencia((int)data[4], (int)data[5], (int)data[6]);
+		congruenciaLineal.algorithm((boolean) data[7]);
+		
+		mainW.manageTableData(MyConstants.COLI_BASIC, congruenciaLineal.getDataForTables());
+		mainW.showDialogCongruenciaLineal(false);
+		
 	}
 
 	public void calculateCongruenciaMultiplicativa() {
