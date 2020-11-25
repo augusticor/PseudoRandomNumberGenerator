@@ -11,6 +11,7 @@ import javax.swing.JDialog;
 import javax.swing.JSpinner;
 
 import constants.MyConstants;
+import views.components.OwnJComboBox;
 
 public class JDCongruenciaLineal extends JDialog{
 
@@ -23,44 +24,48 @@ public class JDCongruenciaLineal extends JDialog{
 	private JSpinner spC;
 	private JSpinner spA;
 	private JSpinner spG;
+	private OwnJComboBox coboxIsClosed;
 	private JButton button;
 	
 	public JDCongruenciaLineal(PseudoRandomMainWindow pseudoRandomMainWindow) {
 		
 		setModal(true);
-		setSize(300, 400);
-		setTitle("datos para cuadrados medios");
+		setSize(300, 450);
+		setTitle("datos para Congruencia lineal");
 		setLocationRelativeTo(pseudoRandomMainWindow);
 		getContentPane().setBackground(Color.WHITE);
 		setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
 		
 		spSeed = new JSpinner();
-		spSeed.setBorder(BorderFactory.createTitledBorder("ingrese el valor de la semilla"));
+		spSeed.setBorder(BorderFactory.createTitledBorder("Ingrese el valor de la semilla"));
 		add(spSeed);
 		
 		spMin = new JSpinner();
-		spMin.setBorder(BorderFactory.createTitledBorder("ingrese el valor minimo"));
+		spMin.setBorder(BorderFactory.createTitledBorder("Ingrese el valor minimo"));
 		add(spMin);
 		
 		spMax = new JSpinner();
-		spMax.setBorder(BorderFactory.createTitledBorder("ingrese el valor maximo"));
+		spMax.setBorder(BorderFactory.createTitledBorder("Ingrese el valor maximo"));
 		add(spMax);
 		
 		spNumToGenerate = new JSpinner();
-		spNumToGenerate.setBorder(BorderFactory.createTitledBorder("ingrese el numero de numeros a generar"));
+		spNumToGenerate.setBorder(BorderFactory.createTitledBorder("Ingrese el numero de numeros a generar"));
 		add(spNumToGenerate );
 		
 		spC = new JSpinner();
-		spC.setBorder(BorderFactory.createTitledBorder("ingrese el valor de C"));
+		spC.setBorder(BorderFactory.createTitledBorder("Ingrese el valor de C"));
 		add(spC );
 		
 		spA = new JSpinner();
-		spA.setBorder(BorderFactory.createTitledBorder("ingrese el valor de A"));
+		spA.setBorder(BorderFactory.createTitledBorder("Ingrese el valor de A"));
 		add(spA );
 		
 		spG = new JSpinner();
-		spG.setBorder(BorderFactory.createTitledBorder("ingrese el valor de G"));
+		spG.setBorder(BorderFactory.createTitledBorder("Ingrese el valor de G"));
 		add(spG );
+		
+		coboxIsClosed = new OwnJComboBox();
+		add(coboxIsClosed);
 		
 		button = new JButton("Calcular");
 		button.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -70,6 +75,5 @@ public class JDCongruenciaLineal extends JDialog{
 		button.setFont(new Font(MyConstants.FONT_ROBOTO, 1, 15));
 		add(button);
 		
-//		setVisible(true);
 	}
 }

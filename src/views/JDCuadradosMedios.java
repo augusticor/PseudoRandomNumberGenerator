@@ -33,19 +33,19 @@ public class JDCuadradosMedios extends JDialog{
 		setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
 		
 		spSeed = new JSpinner();
-		spSeed.setBorder(BorderFactory.createTitledBorder("ingrese el valor de la semilla"));
+		spSeed.setBorder(BorderFactory.createTitledBorder("Ingrese el valor de la semilla"));
 		add(spSeed);
 		
 		spMin = new JSpinner();
-		spMin.setBorder(BorderFactory.createTitledBorder("ingrese el valor minimo"));
+		spMin.setBorder(BorderFactory.createTitledBorder("Ingrese el valor minimo"));
 		add(spMin);
 		
 		spMax = new JSpinner();
-		spMax.setBorder(BorderFactory.createTitledBorder("ingrese el valor maximo"));
+		spMax.setBorder(BorderFactory.createTitledBorder("Ingrese el valor maximo"));
 		add(spMax);
 		
 		spNumToGenerate = new JSpinner();
-		spNumToGenerate.setBorder(BorderFactory.createTitledBorder("ingrese el numero de numeros a generar"));
+		spNumToGenerate.setBorder(BorderFactory.createTitledBorder("Ingrese el numero de numeros a generar"));
 		add(spNumToGenerate );
 		
 		button = new JButton("Calcular");

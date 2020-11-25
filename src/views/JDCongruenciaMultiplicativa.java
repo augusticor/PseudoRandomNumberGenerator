@@ -30,6 +30,7 @@ public class JDCongruenciaMultiplicativa extends JDialog {
 		setModal(true);
 		setSize(320, 600);
 		setTitle("Datos para cuadrados medios");
+		setLocationRelativeTo(pseudoRandomMainWindow);
 
 		spSeed = new OwnJSpinner("Ingrese el valor de la semilla");
 		add(spSeed);
