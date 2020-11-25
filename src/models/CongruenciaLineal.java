@@ -57,16 +57,4 @@ public class CongruenciaLineal extends PseudoRandom {
 		return (auxXi / m);
 	}
 
-	public static void main(String[] args) {
-		CongruenciaLineal congruenciaLineal = new CongruenciaLineal();
-
-		congruenciaLineal.updateValues(8, 10, 1, 10);
-		congruenciaLineal.updateCongruencia(4, 3, 7);
-
-		congruenciaLineal.algorithm(true);
-		
-		for (int i = 0; i < congruenciaLineal.dataForTables.size(); i++) {
-			System.out.println(congruenciaLineal.dataForTables.get(i));
-		}
-	}
 }

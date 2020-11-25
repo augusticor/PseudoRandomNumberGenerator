@@ -15,7 +15,7 @@ public class CuadradosMedios extends PseudoRandom {
 		double divisionNumber = Math.pow(10, seedSize);
 		double Ri = 0;
 		super.clearDatForTables();
-		
+
 		for (int i = 0; i < numbersToGenerate; i++) {
 			algorithm();
 			Ri = (double) seedAux / divisionNumber;
@@ -43,19 +43,6 @@ public class CuadradosMedios extends PseudoRandom {
 			auxString = 0 + auxString;
 		}
 		return auxString;
-	}
-
-	public static void main(String[] args) {
-		CuadradosMedios cuadradosMedios = new CuadradosMedios();
-
-		cuadradosMedios.updateValues(8, 10, 1234, 50);
-		cuadradosMedios.updateCuadrados();
-
-		cuadradosMedios.generateNumbers();
-
-		for (int i = 0; i < cuadradosMedios.dataForTables.size(); i++) {
-			System.out.println(cuadradosMedios.dataForTables.get(i));
-		}
 	}
 
 }

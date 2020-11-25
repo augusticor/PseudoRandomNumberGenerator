@@ -41,14 +41,4 @@ public class CongruenciaMultiplicativa extends PseudoRandom {
 		return (double) Xi / m;
 	}
 
-	public static void main(String[] args) {
-		CongruenciaMultiplicativa congruenciaMultiplicativa = new CongruenciaMultiplicativa();
-		congruenciaMultiplicativa.updateValues(8, 12, 1, 15);
-		congruenciaMultiplicativa.updateData(3, 10);
-		congruenciaMultiplicativa.algorithm(true);
-
-		for (int i = 0; i < congruenciaMultiplicativa.dataForTables.size(); i++) {
-			System.out.println(congruenciaMultiplicativa.dataForTables.get(i));
-		}
-	}
 }
