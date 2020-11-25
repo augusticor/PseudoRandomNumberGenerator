@@ -18,6 +18,9 @@ import views.components.OwnJTable;
 public class PseudoRandomMainWindow extends JFrame {
 
 	private OwnJTable ownJTable;
+//	private JDCuadradosMedios jdCuadradosMedios;
+//	private JDCongruenciaLineal jdCongruenciaLineal;
+//	private JDCongruenciaMultiplicativa jdCongruenciaMultiplicativa;
 
 	public PseudoRandomMainWindow(ActionListener actionListener) {
 		getContentPane().setBackground(Color.WHITE);
@@ -28,7 +31,7 @@ public class PseudoRandomMainWindow extends JFrame {
 		getContentPane().setBackground(Color.WHITE);
 		setLayout(new GridBagLayout());
 		setMinimumSize(new Dimension(950, 550));
-
+		
 		GridBagConstraints c = new GridBagConstraints();
 		createGrid(c);
 
@@ -78,18 +81,17 @@ public class PseudoRandomMainWindow extends JFrame {
 		return new ImageIcon(getClass().getResource(path));
 	}
 	
-	public void showDialogCuadradosMedios() {
-		new JDCuadradosMedios(this);
-		System.out.println("paso 2");
-	}
-	
-	public void showDialogCongruenciaLineal() {
-		new JDCongruenciaLineal(this);
-	}
-	
-	public void showDialogCongruenciaMiltiplicativa() {
-		new JDCongruenciaMultiplicativa(this);
-	}
+//	public void showDialogCuadradosMedios() {
+//		new JDCuadradosMedios(this);
+//	}
+//	
+//	public void showDialogCongruenciaLineal() {
+//		new JDCongruenciaLineal(this);
+//	}
+//	
+//	public void showDialogCongruenciaMiltiplicativa() {
+//		new JDCongruenciaMultiplicativa(this);
+//	}
 
 	private static final long serialVersionUID = 1L;
 }
