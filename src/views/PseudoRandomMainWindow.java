@@ -5,6 +5,7 @@ import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -13,14 +14,15 @@ import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 
 import constants.MyConstants;
+import models.DataForTable;
 import views.components.OwnJTable;
 
 public class PseudoRandomMainWindow extends JFrame {
 
 	private OwnJTable ownJTable;
-//	private JDCuadradosMedios jdCuadradosMedios;
-//	private JDCongruenciaLineal jdCongruenciaLineal;
-//	private JDCongruenciaMultiplicativa jdCongruenciaMultiplicativa;
+	private JDCuadradosMedios jdCuadradosMedios;
+	private JDCongruenciaLineal jdCongruenciaLineal;
+	private JDCongruenciaMultiplicativa jdCongruenciaMultiplicativa;
 
 	public PseudoRandomMainWindow(ActionListener actionListener) {
 		getContentPane().setBackground(Color.WHITE);
@@ -31,7 +33,7 @@ public class PseudoRandomMainWindow extends JFrame {
 		getContentPane().setBackground(Color.WHITE);
 		setLayout(new GridBagLayout());
 		setMinimumSize(new Dimension(950, 550));
-		
+
 		GridBagConstraints c = new GridBagConstraints();
 		createGrid(c);
 
@@ -47,6 +49,10 @@ public class PseudoRandomMainWindow extends JFrame {
 		c.gridwidth = 11;
 		ownJTable = new OwnJTable();
 		add(new JScrollPane(ownJTable), c);
+
+		jdCuadradosMedios = new JDCuadradosMedios(this);
+		jdCongruenciaLineal = new JDCongruenciaLineal(this);
+		jdCongruenciaMultiplicativa = new JDCongruenciaMultiplicativa(this, actionListener);
 
 		setVisible(true);
 	}
@@ -77,21 +83,29 @@ public class PseudoRandomMainWindow extends JFrame {
 		JOptionPane.showMessageDialog(this, errorMessage, "¡ ERROR !", JOptionPane.ERROR_MESSAGE);
 	}
 
+	public void manageTableData(String[] columnIdentifiers, ArrayList<DataForTable> dataForTable) {
+		ownJTable.manageTableData(columnIdentifiers, dataForTable);
+	}
+	
+	public void showDialogCuadradosMedios(boolean show) {
+		jdCuadradosMedios.setVisible(show);
+	}
+
+	public void showDialogCongruenciaLineal(boolean show) {
+		jdCongruenciaLineal.setVisible(show);
+	}
+
+	public void showDialogCongruenciaMultiplicativa(boolean show) {
+		jdCongruenciaMultiplicativa.setVisible(show);
+	}
+
+	public Object[] getDataCongruenciaMultiplicativa() {
+		return jdCongruenciaMultiplicativa.congruenciaMultiplicativaInfo();
+	}
+
 	private ImageIcon createImageIcon(String path) {
 		return new ImageIcon(getClass().getResource(path));
 	}
-	
-//	public void showDialogCuadradosMedios() {
-//		new JDCuadradosMedios(this);
-//	}
-//	
-//	public void showDialogCongruenciaLineal() {
-//		new JDCongruenciaLineal(this);
-//	}
-//	
-//	public void showDialogCongruenciaMiltiplicativa() {
-//		new JDCongruenciaMultiplicativa(this);
-//	}
 
 	private static final long serialVersionUID = 1L;
 }

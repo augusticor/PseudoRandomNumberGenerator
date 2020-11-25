@@ -1,7 +1,6 @@
 package runner;
 
 import controller.Control;
-import views.PseudoRandomMainWindow;
 
 public class RunPseudoRandomNumGenerator {
 

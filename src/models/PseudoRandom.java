@@ -33,4 +33,8 @@ public abstract class PseudoRandom {
 	public void addDataForTable(int i, int xn, double ri, double d) {
 		this.dataForTables.add(new DataForTable(i, xn, ri, d));
 	}
+
+	public ArrayList<DataForTable> getDataForTables() {
+		return dataForTables;
+	}
 }

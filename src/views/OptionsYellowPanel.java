@@ -16,7 +16,7 @@ import views.components.OwnJLabel;
 public class OptionsYellowPanel extends JPanel {
 
 	public OptionsYellowPanel(ActionListener actionListener) {
-		setBackground(Color.decode("#FFC93C"));
+		setBackground(Color.decode(MyConstants.CLR_YELLOW_PANEL));
 		setLayout(new GridBagLayout());
 		setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
 

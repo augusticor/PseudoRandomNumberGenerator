@@ -1,5 +1,7 @@
 package models;
 
+import java.text.DecimalFormat;
+
 public class DataForTable {
 
 	private int i;
@@ -16,6 +18,10 @@ public class DataForTable {
 
 	public String toString() {
 		return "i : " + i + "\n" + "Xn : " + Xn + "\n" + "Ri : " + Ri + "\n" + "Ni : " + Ni + "\n";
+	}
+
+	public Object[] getDataForTable() {
+		return new Object[] { i, Xn, new DecimalFormat("#.#####").format(Ri), new DecimalFormat("#.#####").format(Ni) };
 	}
 
 	public int getI() {

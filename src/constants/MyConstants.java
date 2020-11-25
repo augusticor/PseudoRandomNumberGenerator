@@ -25,7 +25,8 @@ public class MyConstants {
 
 	// Hexadecimal
 	public static final String CLR_BLUE_BTNS = "#07689F";
-	public static final String CLR_YELLOW_PANEL = "#07689F";
+	public static final String CLR_BLUE_TABLE = "#FFC93C";
+	public static final String CLR_YELLOW_PANEL = "#FFC93C";
 	public static final String CLR_BLACK = "#000000";
 	public static final String CLR_WHITE = "#FFFFFF";
 }

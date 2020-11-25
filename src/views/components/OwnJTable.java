@@ -3,11 +3,10 @@ package views.components;
 import java.awt.Color;
 import java.awt.Font;
 import java.util.ArrayList;
-import java.util.Vector;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import constants.MyConstants;
-import models.PseudoRandom;
+import models.DataForTable;
 
 public class OwnJTable extends JTable {
 
@@ -20,7 +19,7 @@ public class OwnJTable extends JTable {
 
 		getTableHeader().setReorderingAllowed(false);
 		getTableHeader().setResizingAllowed(false);
-		getTableHeader().setBackground(Color.WHITE);
+		getTableHeader().setBackground(Color.decode(MyConstants.CLR_BLUE_TABLE));
 		getTableHeader().setForeground(Color.BLACK);
 		getTableHeader().setFont(new Font(MyConstants.FONT_ARIAL, 1, 20));
 		setFont(new Font(MyConstants.FONT_ARIAL, 0, 16));
@@ -28,12 +27,13 @@ public class OwnJTable extends JTable {
 		setForeground(Color.BLACK);
 	}
 
-	public void manageTableData(Vector<?> columnIdentifiers, ArrayList<PseudoRandom> callList) {
+	public void manageTableData(String[] columnIdentifiers, ArrayList<DataForTable> dataForTable) {
 		dtmElements.setColumnIdentifiers(columnIdentifiers);
 		dtmElements.setRowCount(0);
-//		for (Person call : callList) {
-//			dtmElements.addRow(call.valuesForTable());
-//		}
+		
+		for (DataForTable data : dataForTable) {
+			dtmElements.addRow(data.getDataForTable());
+		}
 	}
 
 	private static final long serialVersionUID = 1L;

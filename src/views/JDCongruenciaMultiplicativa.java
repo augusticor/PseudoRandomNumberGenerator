@@ -1,70 +1,71 @@
 package views;
 
-import java.awt.Color;
 import java.awt.Component;
-import java.awt.Font;
+import java.awt.event.ActionListener;
 
-import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
-import javax.swing.JButton;
 import javax.swing.JDialog;
-import javax.swing.JSpinner;
 
-import constants.MyConstants;
+import controller.ActionsE;
+import views.components.OwnJButton;
+import views.components.OwnJComboBox;
+import views.components.OwnJSpinner;
 
-public class JDCongruenciaMultiplicativa extends JDialog{
+public class JDCongruenciaMultiplicativa extends JDialog {
 
 	private static final long serialVersionUID = 1L;
 
-	private JSpinner spSeed;
-	private JSpinner spMin;
-	private JSpinner spMax;
-	private JSpinner spNumToGenerate;
-	private JSpinner spT;
-	private JSpinner spG;
-	private JButton button;
-	
-	public JDCongruenciaMultiplicativa(PseudoRandomMainWindow pseudoRandomMainWindow) {
-		
-		setModal(true);
-		setSize(300, 400);
-		setTitle("datos para cuadrados medios");
-		setLocationRelativeTo(pseudoRandomMainWindow);
-		getContentPane().setBackground(Color.WHITE);
+	private OwnJSpinner spSeed;
+	private OwnJSpinner spMin;
+	private OwnJSpinner spMax;
+	private OwnJSpinner spNumToGenerate;
+	private OwnJSpinner spT;
+	private OwnJSpinner spG;
+	private OwnJComboBox coboxIsClosed;
+	private OwnJButton btnCongruenciaM;
+
+	public JDCongruenciaMultiplicativa(PseudoRandomMainWindow pseudoRandomMainWindow, ActionListener actionListener) {
+		super(pseudoRandomMainWindow);
 		setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
-		
-		spSeed = new JSpinner();
-		spSeed.setBorder(BorderFactory.createTitledBorder("ingrese el valor de la semilla"));
+		setModal(true);
+		setSize(320, 600);
+		setTitle("Datos para cuadrados medios");
+
+		spSeed = new OwnJSpinner("Ingrese el valor de la semilla");
 		add(spSeed);
-		
-		spMin = new JSpinner();
-		spMin.setBorder(BorderFactory.createTitledBorder("ingrese el valor minimo"));
+
+		spMin = new OwnJSpinner("Ingrese el valor minimo");
 		add(spMin);
-		
-		spMax = new JSpinner();
-		spMax.setBorder(BorderFactory.createTitledBorder("ingrese el valor maximo"));
+
+		spMax = new OwnJSpinner("Ingrese el valor maximo");
 		add(spMax);
+
+		spNumToGenerate = new OwnJSpinner("Cantidad de numeros a generar");
+		add(spNumToGenerate);
+
+		spT = new OwnJSpinner("Ingrese el valor de T");
+		add(spT);
+
+		spG = new OwnJSpinner("Ingrese el valor de G");
+		add(spG);
 		
-		spNumToGenerate = new JSpinner();
-		spNumToGenerate.setBorder(BorderFactory.createTitledBorder("ingrese el numero de numeros a generar"));
-		add(spNumToGenerate );
-		
-		spT = new JSpinner();
-		spT.setBorder(BorderFactory.createTitledBorder("ingrese el valor de T"));
-		add(spT );
-		
-		spG = new JSpinner();
-		spG.setBorder(BorderFactory.createTitledBorder("ingrese el valor de G"));
-		add(spG );
-		
-		button = new JButton("Calcular");
-		button.setAlignmentX(Component.CENTER_ALIGNMENT);
-		button.setForeground(Color.decode(MyConstants.CLR_WHITE));
-		button.setBackground(Color.decode(MyConstants.CLR_BLUE_BTNS));
-		button.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2, true));
-		button.setFont(new Font(MyConstants.FONT_ROBOTO, 1, 15));
-		add(button);
-		
-//		setVisible(true);
+		coboxIsClosed = new OwnJComboBox();
+		add(coboxIsClosed);
+
+		btnCongruenciaM = new OwnJButton("  Calcular  ", ActionsE.CALCULATE_CONGRUENCIA_MULTIPLICATIVA, actionListener);
+		btnCongruenciaM.setAlignmentX(Component.CENTER_ALIGNMENT);
+		add(btnCongruenciaM);
+	}
+
+	public Object[] congruenciaMultiplicativaInfo() {
+		return new Object[] {
+				(Integer) spSeed.getValue(),
+				(Integer) spMin.getValue(),
+				(Integer) spMax.getValue(),
+				(Integer) spNumToGenerate.getValue(),
+				(Integer) spT.getValue(),
+				(Integer) spG.getValue(),
+				coboxIsClosed.getSelectedIndex() == 0 ? true : false
+				};
 	}
 }
