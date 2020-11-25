@@ -12,6 +12,8 @@ public class Control implements ActionListener {
 	private CongruenciaMultiplicativa congruenciaMultiplicativa;
 	private CongruenciaLineal congruenciaLineal;
 	private CuadradosMedios cuadradosMedios;
+	private UniformDistribution distributionUniforme;
+	private NormalEstandar normalEstandar;
 
 	private PseudoRandomMainWindow mainW;
 
@@ -20,6 +22,9 @@ public class Control implements ActionListener {
 		congruenciaLineal = new CongruenciaLineal();
 		cuadradosMedios = new CuadradosMedios();
 
+		distributionUniforme = new UniformDistribution();
+		normalEstandar = new NormalEstandar();
+		
 		mainW = new PseudoRandomMainWindow(this);
 	}
 
@@ -36,8 +41,10 @@ public class Control implements ActionListener {
 			mainW.showDialogCongruenciaMultiplicativa(true);
 			break;
 		case DISTRO_NORMAL_EST:
+			mainW.showDialogDistribucioNormalEst(true);
 			break;
 		case DISTRO_UNIFORME:
+			mainW.showDialogDistribucionUniforme(true);
 			break;
 		case ABOUT:
 			break;
@@ -49,6 +56,12 @@ public class Control implements ActionListener {
 			break;
 		case CALCULATE_CUADRADOS_MEDIOS:
 			calculateCuadradosMedios();
+		case CALCULATE_DISTRO_UNIFORME:
+			calculateDistroUniforme();
+			break;
+		case CALCULATE_DISTRO_NORMAL:
+			calculateDistroNormalEstandar();
+			break;
 		}
 	}
 
@@ -81,5 +94,23 @@ public class Control implements ActionListener {
 
 		mainW.manageTableData(MyConstants.COLI_BASIC, congruenciaMultiplicativa.getDataForTables());
 		mainW.showDialogCongruenciaMultiplicativa(false);
+	}
+
+	private void calculateDistroUniforme() {
+		Object[] data = mainW.getDataDistribucionUniforme();
+		distributionUniforme.updateValues((int) data[0], (int) data[1], 0, (int) data[2]);
+		distributionUniforme.algorithm();
+
+		mainW.manageTableData(MyConstants.COLI_BASIC, distributionUniforme.getDataForTables());
+		mainW.showDialogDistribucionUniforme(false);
+	}
+	
+	private void calculateDistroNormalEstandar() {
+		Object[] data = mainW.getDataDistribucionNormal();
+		normalEstandar.updateValues((int) data[0], (int) data[1], 0, (int) data[2]);
+		normalEstandar.algorithm();
+		
+		mainW.manageTableData(MyConstants.COLI_BASIC, normalEstandar.getDataForTables());
+		mainW.showDialogDistribucioNormalEst(false);
 	}
 }

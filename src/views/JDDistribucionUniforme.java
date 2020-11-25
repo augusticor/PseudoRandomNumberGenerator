@@ -11,19 +11,19 @@ import controller.ActionsE;
 import views.components.OwnJButton;
 import views.components.OwnJSpinner;
 
-public class JDNormalEstandar extends JDialog {
+public class JDDistribucionUniforme extends JDialog {
 
 	private OwnJSpinner spMinLimit;
 	private OwnJSpinner spMaxLimit;
 	private OwnJSpinner spNumToGenerate;
 	private OwnJButton btnDistroUniforme;
 	
-	public JDNormalEstandar(JFrame pseudoRandomMainWindow, ActionListener actionListener) {
+	public JDDistribucionUniforme(JFrame pseudoRandomMainWindow, ActionListener actionListener) {
 		super(pseudoRandomMainWindow);
 		setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
 		setModal(true);
-		setSize(300, 280);
-		setTitle("Datos para distribucion Normal estándar");
+		setSize(300, 300);
+		setTitle("Datos para distribucion uniforme");
 		setLocationRelativeTo(pseudoRandomMainWindow);
 
 		spMinLimit = new OwnJSpinner("Ingrese el valor mínimo");
@@ -35,12 +35,12 @@ public class JDNormalEstandar extends JDialog {
 		spNumToGenerate = new OwnJSpinner("Cantidad de numeros a generar");
 		add(spNumToGenerate);
 
-		btnDistroUniforme = new OwnJButton("Generar números", ActionsE.CALCULATE_DISTRO_NORMAL, actionListener);
+		btnDistroUniforme = new OwnJButton("Generar números", ActionsE.CALCULATE_DISTRO_UNIFORME, actionListener);
 		btnDistroUniforme.setAlignmentX(Component.CENTER_ALIGNMENT);
 		add(btnDistroUniforme);
 	}
 	
-	public Object[] getDistroNormalData() {
+	public Object[] getDistroUniformeData() {
 		return new Object[] {
 				spMinLimit.getValue(),
 				spMaxLimit.getValue(),

@@ -23,6 +23,8 @@ public class PseudoRandomMainWindow extends JFrame {
 	private JDCuadradosMedios jdCuadradosMedios;
 	private JDCongruenciaLineal jdCongruenciaLineal;
 	private JDCongruenciaMultiplicativa jdCongruenciaMultiplicativa;
+	private JDDistribucionUniforme jdDistribucionUniforme;
+	private JDNormalEstandar jdNormalEstandar;
 
 	public PseudoRandomMainWindow(ActionListener actionListener) {
 		getContentPane().setBackground(Color.WHITE);
@@ -53,7 +55,9 @@ public class PseudoRandomMainWindow extends JFrame {
 		jdCuadradosMedios = new JDCuadradosMedios(this,actionListener);
 		jdCongruenciaLineal = new JDCongruenciaLineal(this,actionListener);
 		jdCongruenciaMultiplicativa = new JDCongruenciaMultiplicativa(this, actionListener);
-
+		jdDistribucionUniforme = new JDDistribucionUniforme(this, actionListener);
+		jdNormalEstandar = new JDNormalEstandar(this, actionListener);
+		
 		setVisible(true);
 	}
 
@@ -80,7 +84,7 @@ public class PseudoRandomMainWindow extends JFrame {
 	 * @param errorMessage to show to the user
 	 */
 	public void showErrorMessage(String errorMessage) {
-		JOptionPane.showMessageDialog(this, errorMessage, "¡ ERROR !", JOptionPane.ERROR_MESSAGE);
+		JOptionPane.showMessageDialog(this, errorMessage, "ï¿½ ERROR !", JOptionPane.ERROR_MESSAGE);
 	}
 
 	public void manageTableData(String[] columnIdentifiers, ArrayList<DataForTable> dataForTable) {
@@ -98,6 +102,14 @@ public class PseudoRandomMainWindow extends JFrame {
 	public void showDialogCongruenciaMultiplicativa(boolean show) {
 		jdCongruenciaMultiplicativa.setVisible(show);
 	}
+	
+	public void showDialogDistribucionUniforme(boolean show) {
+		jdDistribucionUniforme.setVisible(show);
+	}
+	
+	public void showDialogDistribucioNormalEst(boolean show) {
+		jdNormalEstandar.setVisible(show);
+	}
 
 	public Object[] getDataCongruenciaMultiplicativa() {
 		return jdCongruenciaMultiplicativa.congruenciaMultiplicativaInfo();
@@ -109,6 +121,12 @@ public class PseudoRandomMainWindow extends JFrame {
 	
 	public Object[] getDataCuadradosMedios() {
 		return jdCuadradosMedios.cuadradosMediosInfo();
+	public Object[] getDataDistribucionUniforme() {
+		return jdDistribucionUniforme.getDistroUniformeData();
+	}
+	
+	public Object[] getDataDistribucionNormal() {
+		return jdNormalEstandar.getDistroNormalData();
 	}
 
 	private ImageIcon createImageIcon(String path) {
