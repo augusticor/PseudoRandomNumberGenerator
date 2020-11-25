@@ -24,7 +24,7 @@ public class Control implements ActionListener {
 
 		distributionUniforme = new UniformDistribution();
 		normalEstandar = new NormalEstandar();
-		
+
 		mainW = new PseudoRandomMainWindow(this);
 	}
 
@@ -70,7 +70,7 @@ public class Control implements ActionListener {
 		cuadradosMedios.updateValues((int) data[1], (int) data[2], (int) data[0], (int) data[3]);
 		cuadradosMedios.updateCuadrados();
 		cuadradosMedios.generateNumbers();
-		
+
 		mainW.manageTableData(MyConstants.COLI_BASIC, cuadradosMedios.getDataForTables());
 		mainW.showDialogCuadradosMedios(false);
 	}
@@ -78,12 +78,12 @@ public class Control implements ActionListener {
 	public void calculateCongruenciaLineal() {
 		Object[] data = mainW.getDataCongruenciaLineal();
 		congruenciaLineal.updateValues((int) data[1], (int) data[2], (int) data[0], (int) data[3]);
-		congruenciaLineal.updateCongruencia((int)data[4], (int)data[5], (int)data[6]);
+		congruenciaLineal.updateCongruencia((int) data[4], (int) data[5], (int) data[6]);
 		congruenciaLineal.algorithm((boolean) data[7]);
-		
+
 		mainW.manageTableData(MyConstants.COLI_BASIC, congruenciaLineal.getDataForTables());
 		mainW.showDialogCongruenciaLineal(false);
-		
+
 	}
 
 	public void calculateCongruenciaMultiplicativa() {
@@ -104,12 +104,12 @@ public class Control implements ActionListener {
 		mainW.manageTableData(MyConstants.COLI_BASIC, distributionUniforme.getDataForTables());
 		mainW.showDialogDistribucionUniforme(false);
 	}
-	
+
 	private void calculateDistroNormalEstandar() {
 		Object[] data = mainW.getDataDistribucionNormal();
 		normalEstandar.updateValues((int) data[0], (int) data[1], 0, (int) data[2]);
 		normalEstandar.algorithm();
-		
+
 		mainW.manageTableData(MyConstants.COLI_BASIC, normalEstandar.getDataForTables());
 		mainW.showDialogDistribucioNormalEst(false);
 	}
