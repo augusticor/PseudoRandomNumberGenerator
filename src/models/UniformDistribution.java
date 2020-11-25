@@ -19,14 +19,4 @@ public class UniformDistribution extends PseudoRandom {
 		}
 	}
 
-	public static void main(String[] args) {
-		UniformDistribution uniformDistribution = new UniformDistribution();
-
-		uniformDistribution.updateValues(1, 50, 0, 20);
-		uniformDistribution.algorithm();
-		
-		for (int i = 0; i < uniformDistribution.dataForTables.size(); i++) {
-			System.out.println(uniformDistribution.dataForTables.get(i));
-		}
-	}
 }

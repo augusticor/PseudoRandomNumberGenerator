@@ -44,18 +44,4 @@ public class NormalEstandar extends PseudoRandom {
 		return minValue;
 	}
 
-	public static void main(String[] args) {
-		NormalEstandar normalEstandar = new NormalEstandar();
-
-		normalEstandar.updateValues(2, 8, 0, 10);
-
-		normalEstandar.algorithm();
-
-		for (int i = 0; i < normalEstandar.dataForTables.size(); i++) {
-			System.out.println(normalEstandar.dataForTables.get(i));
-		}
-
-		System.out.println("Mayor valor generado : " + normalEstandar.getMaxValue());
-		System.out.println("Menor valor generado : " + normalEstandar.getMinValue());
-	}
 }
