@@ -12,10 +12,10 @@ public class UniformDistribution extends PseudoRandom {
 
 	public void algorithm() {
 		super.clearDatForTables();
-		int randomNumber = 0;
+		double Ri = 0;
 		for (int i = 0; i < super.numbersToGenerate; i++) {
-			randomNumber = random.nextInt(maxLimit - minLimit + 1) + minLimit;
-			super.addDataForTable(i + 1, 0, 0, randomNumber);
+			Ri = random.nextDouble();
+			super.addDataForTable(i + 1, 0, Ri, super.calculateNI(Ri));
 		}
 	}
 

@@ -23,6 +23,7 @@ public class PseudoRandomMainWindow extends JFrame {
 	private JDCuadradosMedios jdCuadradosMedios;
 	private JDCongruenciaLineal jdCongruenciaLineal;
 	private JDCongruenciaMultiplicativa jdCongruenciaMultiplicativa;
+	private JDDistribucionUniforme jdDistribucionUniforme;
 
 	public PseudoRandomMainWindow(ActionListener actionListener) {
 		getContentPane().setBackground(Color.WHITE);
@@ -53,6 +54,7 @@ public class PseudoRandomMainWindow extends JFrame {
 		jdCuadradosMedios = new JDCuadradosMedios(this);
 		jdCongruenciaLineal = new JDCongruenciaLineal(this);
 		jdCongruenciaMultiplicativa = new JDCongruenciaMultiplicativa(this, actionListener);
+		jdDistribucionUniforme = new JDDistribucionUniforme(this, actionListener);
 
 		setVisible(true);
 	}
@@ -98,9 +100,17 @@ public class PseudoRandomMainWindow extends JFrame {
 	public void showDialogCongruenciaMultiplicativa(boolean show) {
 		jdCongruenciaMultiplicativa.setVisible(show);
 	}
+	
+	public void showDialogDistribucionUniforme(boolean show) {
+		jdDistribucionUniforme.setVisible(show);
+	}
 
 	public Object[] getDataCongruenciaMultiplicativa() {
 		return jdCongruenciaMultiplicativa.congruenciaMultiplicativaInfo();
+	}
+	
+	public Object[] getDataDistribucionUniforme() {
+		return jdDistribucionUniforme.getDistroUniformeData();
 	}
 
 	private ImageIcon createImageIcon(String path) {

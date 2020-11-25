@@ -10,11 +10,13 @@ import views.PseudoRandomMainWindow;
 public class Control implements ActionListener {
 
 	private CongruenciaMultiplicativa congruenciaMultiplicativa;
+	private UniformDistribution distributionUniforme;
 
 	private PseudoRandomMainWindow mainW;
 
 	public Control() {
 		congruenciaMultiplicativa = new CongruenciaMultiplicativa();
+		distributionUniforme = new UniformDistribution();
 
 		mainW = new PseudoRandomMainWindow(this);
 	}
@@ -34,11 +36,15 @@ public class Control implements ActionListener {
 		case DISTRO_NORMAL_EST:
 			break;
 		case DISTRO_UNIFORME:
+			mainW.showDialogDistribucionUniforme(true);
 			break;
 		case ABOUT:
 			break;
 		case CALCULATE_CONGRUENCIA_MULTIPLICATIVA:
 			calculateCongruenciaMultiplicativa();
+			break;
+		case CALCULATE_DISTRO_UNIFORME:
+			calculateDistroUniforme();
 			break;
 		}
 	}
@@ -57,5 +63,14 @@ public class Control implements ActionListener {
 
 		mainW.manageTableData(MyConstants.COLI_BASIC, congruenciaMultiplicativa.getDataForTables());
 		mainW.showDialogCongruenciaMultiplicativa(false);
+	}
+
+	private void calculateDistroUniforme() {
+		Object[] data = mainW.getDataDistribucionUniforme();
+		distributionUniforme.updateValues((int) data[0], (int) data[1], 0, (int) data[2]);
+		distributionUniforme.algorithm();
+
+		mainW.manageTableData(MyConstants.COLI_BASIC, distributionUniforme.getDataForTables());
+		mainW.showDialogDistribucionUniforme(false);
 	}
 }
