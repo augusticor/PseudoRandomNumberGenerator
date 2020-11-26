@@ -4,6 +4,7 @@ public class MyConstants {
 
 	public static final String APP_TITLE = "Generador de números pseudoaleatorios";
 	public static final String MAIN_ICON = "/img/icon.png";
+	public static final String SISTEMAS_ICON = "/img/sistemas.png";
 
 	// Column identifiers
 	public static final String COLI_BASIC[] = { "i", "Xi", "Ri", "Ni" };
