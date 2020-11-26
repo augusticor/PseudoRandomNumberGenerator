@@ -25,6 +25,7 @@ public class PseudoRandomMainWindow extends JFrame {
 	private JDCongruenciaMultiplicativa jdCongruenciaMultiplicativa;
 	private JDDistribucionUniforme jdDistribucionUniforme;
 	private JDNormalEstandar jdNormalEstandar;
+	private AboutDialog jdAboutDialog;
 
 	public PseudoRandomMainWindow(ActionListener actionListener) {
 		getContentPane().setBackground(Color.WHITE);
@@ -57,6 +58,7 @@ public class PseudoRandomMainWindow extends JFrame {
 		jdCongruenciaMultiplicativa = new JDCongruenciaMultiplicativa(this, actionListener);
 		jdDistribucionUniforme = new JDDistribucionUniforme(this, actionListener);
 		jdNormalEstandar = new JDNormalEstandar(this, actionListener);
+		jdAboutDialog = new AboutDialog(this);
 
 		setVisible(true);
 	}
@@ -109,6 +111,10 @@ public class PseudoRandomMainWindow extends JFrame {
 
 	public void showDialogDistribucioNormalEst(boolean show) {
 		jdNormalEstandar.setVisible(show);
+	}
+	
+	public void showAboutDialog() {
+		jdAboutDialog.setVisible(true);
 	}
 
 	public Object[] getDataCongruenciaMultiplicativa() {

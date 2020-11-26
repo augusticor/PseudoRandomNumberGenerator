@@ -47,6 +47,7 @@ public class Control implements ActionListener {
 			mainW.showDialogDistribucionUniforme(true);
 			break;
 		case ABOUT:
+			mainW.showAboutDialog();
 			break;
 		case CALCULATE_CONGRUENCIA_MULTIPLICATIVA:
 			calculateCongruenciaMultiplicativa();
