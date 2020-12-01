@@ -32,6 +32,7 @@ public class OwnJTable extends JTable {
 		dtmElements.setRowCount(0);
 		
 		for (DataForTable data : dataForTable) {
+			
 			dtmElements.addRow(data.getDataForTable());
 		}
 	}

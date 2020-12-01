@@ -57,6 +57,7 @@ public class Control implements ActionListener {
 			break;
 		case CALCULATE_CUADRADOS_MEDIOS:
 			calculateCuadradosMedios();
+			break;
 		case CALCULATE_DISTRO_UNIFORME:
 			calculateDistroUniforme();
 			break;
@@ -72,8 +73,8 @@ public class Control implements ActionListener {
 		cuadradosMedios.updateCuadrados();
 		cuadradosMedios.generateNumbers();
 
-		mainW.manageTableData(MyConstants.COLI_BASIC, cuadradosMedios.getDataForTables());
 		mainW.showDialogCuadradosMedios(false);
+		mainW.manageTableData(MyConstants.COLI_BASIC, cuadradosMedios.getDataForTables());
 	}
 
 	public void calculateCongruenciaLineal() {
