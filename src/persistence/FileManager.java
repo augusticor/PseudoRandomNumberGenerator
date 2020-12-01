@@ -35,7 +35,27 @@ public class FileManager {
 
 		for (int i = 0; i < auxArray.size(); i++) {
 			bufferedWriter.write(FORMAT.format(auxArray.get(i).getRi()));
-			bufferedWriter.write("#");
+			if (i < auxArray.size() - 1) {
+				bufferedWriter.write("#");
+			}
+		}
+
+		bufferedWriter.close();
+		fileWriter.close();
+	}
+
+	public void writeFileNormalDistro(String fileName, ArrayList<DataForTable> dataForTable) throws IOException {
+		ArrayList<DataForTable> auxArray = new ArrayList<DataForTable>(dataForTable);
+		File file = new File(System.getProperty("user.home") + "/Desktop/" + fileName);
+
+		FileWriter fileWriter = new FileWriter(file);
+		BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+
+		for (int i = 0; i < auxArray.size(); i++) {
+			bufferedWriter.write(FORMAT.format(auxArray.get(i).getNi()));
+			if (i < auxArray.size() - 1) {
+				bufferedWriter.write("#");
+			}
 		}
 
 		bufferedWriter.close();

@@ -159,7 +159,7 @@ public class Control implements ActionListener {
 		mainW.showDialogDistribucioNormalEst(false);
 
 		try {
-			fileManager.writeFile("distronormal.txt", auxData);
+			fileManager.writeFileNormalDistro("distronormal.txt", auxData);
 		} catch (IOException e) {
 			mainW.showErrorMessage("Error al escribir el archivo distronormal en Desktop");
 			mainW.showErrorMessage(e.getMessage());
