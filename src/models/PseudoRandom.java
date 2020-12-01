@@ -37,4 +37,8 @@ public abstract class PseudoRandom {
 	public ArrayList<DataForTable> getDataForTables() {
 		return dataForTables;
 	}
+
+	public ArrayList<DataForTable> createACopyOfThisArray() {
+		return new ArrayList<DataForTable>(this.dataForTables);
+	}
 }
