@@ -63,6 +63,7 @@ public class Control implements ActionListener {
 			break;
 		case CALCULATE_CUADRADOS_MEDIOS:
 			calculateCuadradosMedios();
+			break;
 		case CALCULATE_DISTRO_UNIFORME:
 			calculateDistroUniforme();
 			break;

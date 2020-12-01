@@ -29,7 +29,7 @@ public class JDCongruenciaMultiplicativa extends JDialog {
 		setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
 		setModal(true);
 		setSize(320, 600);
-		setTitle("Datos para cuadrados medios");
+		setTitle("Datos para congruencia multiplicativa");
 		setLocationRelativeTo(pseudoRandomMainWindow);
 
 		spSeed = new OwnJSpinner("Ingrese el valor de la semilla");
